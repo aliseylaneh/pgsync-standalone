@@ -1,0 +1,14 @@
+[
+  {
+    "database": "local_portal_and_core_db",
+    "index": "pgsync_portal",
+    "pipeline": "<pipeline>",
+    "routing": "<routing>",
+    "nodes": {
+      "table": "portal_property",
+      "columns": [
+        "title_en"
+      ]
+    }
+  }
+]

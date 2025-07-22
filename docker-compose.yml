@@ -1,0 +1,13 @@
+services:
+  pgsync:
+    image: toluaina1/pgsync:latest
+    container_name: pgsync
+    environment:
+      REDIS_CHECKPOINT: "true"
+      REDIS_HOST: redis
+      PG_URL: postgres://postgres:postgres@db/local_portal_and_core_db
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    volumes:
+      - ./schema.json:/app/schema.json
+    command: ["-c", "schema.json", "-d", "-b"]
+    restart: unless-stopped
