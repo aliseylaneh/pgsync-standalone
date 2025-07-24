@@ -1,13 +1,111 @@
 [
   {
     "database": "local_portal_and_core_db",
-    "index": "pgsync_portal",
-    "pipeline": "<pipeline>",
-    "routing": "<routing>",
+    "index": "property",
     "nodes": {
       "table": "portal_property",
+      "schema": "public",
       "columns": [
-        "title_en"
+        "id",
+        "title_en",
+        "title_ar",
+        "purpose_en",
+        "purpose_ar",
+        "completion_status_en",
+        "completion_status_ar",
+        "description_en",
+        "description_ar",
+        "price",
+        "currency_id",
+        "size_value",
+        "number_of_bedrooms",
+        "number_of_bathrooms",
+        "number_of_parking",
+        "is_available",
+        "is_off_plan",
+        "status_en",
+        "available_date"
+      ],
+      "children": [
+        {
+          "table": "portal_location",
+          "schema": "public",
+          "columns": [
+            "id"
+          ],
+          "relationship": {
+            "variant": "object",
+            "type": "one_to_one"
+          },
+          "label": "location",
+          "children": [
+            {
+              "table": "core_state",
+              "schema": "public",
+              "columns": [
+                "name_en",
+                "name_ar"
+              ],
+              "relationship": {
+                "variant": "object",
+                "type": "one_to_one"
+              },
+              "label": "state"
+            },
+            {
+              "table": "core_country",
+              "schema": "public",
+              "columns": [
+                "name_en",
+                "name_ar"
+              ],
+              "relationship": {
+                "variant": "object",
+                "type": "one_to_one"
+              },
+              "label": "country"
+            },
+            {
+              "table": "core_city",
+              "schema": "public",
+              "columns": [
+                "name_en",
+                "name_ar"
+              ],
+              "relationship": {
+                "variant": "object",
+                "type": "one_to_one"
+              },
+              "label": "city"
+            },
+            {
+              "table": "core_community",
+              "schema": "public",
+              "columns": [
+                "name_en",
+                "name_ar"
+              ],
+              "relationship": {
+                "variant": "object",
+                "type": "one_to_one"
+              },
+              "label": "community"
+            },
+            {
+              "table": "core_subcommunity",
+              "schema": "public",
+              "columns": [
+                "name_en",
+                "name_ar"
+              ],
+              "relationship": {
+                "variant": "object",
+                "type": "one_to_one"
+              },
+              "label": "sub_community"
+            }
+          ]
+        }
       ]
     }
   }

@@ -9,5 +9,5 @@ services:
       ELASTICSEARCH_URL: http://elasticsearch:9200
     volumes:
       - ./schema.json:/app/schema.json
-    command: ["-c", "schema.json", "-d", "-b"]
+    command: ["-c", "schema.json"]
     restart: unless-stopped
